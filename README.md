@@ -56,10 +56,10 @@ We gain clarity and brevity without changing runtime semantics or introducing ne
 [???getVal()]          // Evaluates getVal(), includes result if non-nullish
 
 // Invalid or disallowed usage:
-const x = ???value;    // SyntaxError — not valid outside array literals
-[...(???value)]        // SyntaxError — cannot be used in spread expression
-[???...value]          // SyntaxError — spread cannot be nested in ???
-[...???value]          // SyntaxError — ??? is not a standalone expression
+const x = ???value;    // SyntaxError - not valid outside array literals
+[...(???value)]        // SyntaxError - cannot be used in spread expression
+[???...value]          // SyntaxError - spread cannot be nested in ???
+[...???value]          // SyntaxError - ??? is not a standalone expression
 ```
 
 Note: The `???` operator is only valid as a top-level element inside array literals. It does not evaluate to a value and cannot be composed with other expressions or operators.
@@ -75,7 +75,7 @@ Note: The `???` operator is only valid as a top-level element inside array liter
 ### Invalid Usage
 
 ```js
-const x = ???value;    // SyntaxError — operator not valid outside array literals
+const x = ???value;    // SyntaxError - operator not valid outside array literals
 ```
 
 
@@ -114,7 +114,7 @@ This proposal desugars directly to `...(x != null ? [x] : [])` and I plan to imp
 ## Q & A
 **Q:** Why is this a syntax operator and not a function like `nonNullishOf(x)`?
 
-**A:** The use case is inherently syntactic—conditional inclusion of values during array construction. A helper like `nonNullishOf(x)` would require writing:
+**A:** A helper like `nonNullishOf(x)` would require writing:
 
 ```js
 const arr = [
@@ -140,4 +140,4 @@ This introduces both verbosity and a shift in abstraction: the developer must no
 
 **Q:** How does this interact with transpilation or older runtimes?
 
-**A:** The operator desugars to `...(x != null ? [x] : [])`, which is fully compatible with all modern JavaScript environments. It can be easily implemented in Babel or similar tools. In runtimes that don’t support it natively, use will result in a syntax error—just like with `??`, `?.`, or `...` when they were newly introduced.
+**A:** The operator desugars to `...(x != null ? [x] : [])`, which is fully compatible with all modern JavaScript environments. It can be easily implemented in Babel or similar tools. In runtimes that don’t support it natively, use will result in a syntax error--just like with `??`, `?.`, or `...` when they were newly introduced.
