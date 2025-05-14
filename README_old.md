@@ -1,5 +1,8 @@
 # nothing to see here
 
+You can browse the [ecmarkup output](https://jethrolarson.github.io/proposal-conditional-inclusion-operator/)
+or browse the [source](https://github.com/jethrolarson/proposal-conditional-inclusion-operator/blob/HEAD/spec.emu).
+
 **This is from the template. Kept for contributor reference.**
 
 # template-for-proposals

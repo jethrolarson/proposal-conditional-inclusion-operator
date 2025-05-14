@@ -1,8 +1,5 @@
 # Nullish Conditional Inclusion Operator (`???`)
 
-You can browse the [ecmarkup output](https://jethrolarson.github.io/proposal-conditional-inclusion-operator/)
-or browse the [source](https://github.com/jethrolarson/proposal-conditional-inclusion-operator/blob/HEAD/spec.emu).
-
 ## Status
 
 This proposal is currently Stage 0. It is seeking feedback and a champion within TC39
