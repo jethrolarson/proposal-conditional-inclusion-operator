@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "template-for-proposals",
-  "description": "A repository template for ECMAScript proposals.",
+  "name": "proposal-conditional-inclusion-operator",
+  "description": "A proposal for a new operator which conditionally spreads non-nullish values into arrays.",
   "scripts": {
     "start": "npm run build-loose -- --watch",
     "build": "npm run build-loose -- --strict",

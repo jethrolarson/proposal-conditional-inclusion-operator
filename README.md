@@ -107,9 +107,20 @@ This blend of familiar cues supports immediate understanding: `???` includes a v
 
 Crucially, `???` is not an expression-level operator and does not introduce new evaluation rules or coercions. It is purely syntactic sugar for a very common pattern.
 
-## Implementation Strategy
+## Reference Implementation
 
-This proposal desugars directly to `...(x != null ? [x] : [])` and I plan to implement a babel plugin to prototype this soon.
+This repo includes a full working implementation:
+
+- Custom parser patch: `babel-parser-7.27.2-custom.tgz` [source](https://github.com/jethrolarson/babel/commit/7f5ab759c310daeb38bf0dbee3f42aec646f2db9)
+- Transform plugin: [`./babel-plugin-conditional-inclusion`](./babel-plugin-conditional-inclusion)
+
+To test:
+
+```bash
+cd babel-plugin-conditional-inclusion
+npm install
+npm test
+````
 
 ## Q & A
 **Q:** Why is this a syntax operator and not a function like `nonNullishOf(x)`?
