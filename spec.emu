@@ -4,36 +4,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 <script src="./spec.js"></script>
 <pre class="metadata">
-title: Proposal Title Goes Here
-stage: -1
-contributors: Your Name(s) Here
+title: Nullish Conditional Inclusion Operator
+stage: 0
+contributors: Jethro Larson
 </pre>
 
-<emu-clause id="sec-demo-clause">
-  <h1>This is an emu-clause</h1>
-  <p>This is an algorithm:</p>
+<emu-clause id="sec-nullish-conditional-inclusion">
+  <h1>Runtime Semantics: Array Element Evaluation with <code>???</code></h1>
+  <p>
+    When processing an <code>ArrayLiteral</code> that contains an element of the form <code>??? Expression</code>,
+    the following steps are performed to evaluate the element:
+  </p>
   <emu-alg>
-    1. Let _proposal_ be *undefined*.
-    1. If IsAccepted(_proposal_) is *true*, then
-      1. Let _stage_ be *0*<sub>ℤ</sub>.
-    1. Else,
-      1. Let _stage_ be *-1*<sub>ℤ</sub>.
-    1. Return ? ToString(_stage_).
-  </emu-alg>
-</emu-clause>
-
-<emu-clause id="sec-is-accepted" type="abstract operation">
-  <h1>
-      IsAccepted (
-        _proposal_: an ECMAScript language value
-      ): a Boolean
-  </h1>
-  <dl class="header">
-    <dt>description</dt>
-    <dd>Tells you if the proposal was accepted</dd>
-  </dl>
-  <emu-alg>
-    1. If _proposal_ is not a String, or is not accepted, return *false*.
-    1. Return *true*.
+    1. Let _exprValue_ be the result of evaluating |Expression|.
+    1. If _exprValue_ is *null* or *undefined*, no element is included in the result array for this position.
+    1. Otherwise, include _exprValue_ as the element at this position in the result array.
   </emu-alg>
 </emu-clause>
